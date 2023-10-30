@@ -5,8 +5,8 @@ object Conexao {
 
     //substitua aqui
     var bancoUser = "root"
-    //var bancoSenha = "#Gf53359131851"
-    var bancoSenha = "38762"
+    var bancoSenha = "#Gf53359131851"
+    //var bancoSenha = "38762"
 
     var jdbcTemplate: JdbcTemplate? = null
 
@@ -14,6 +14,7 @@ object Conexao {
             if (field == null) {
                 val dataSource = BasicDataSource()
                 dataSource.url = "jdbc:mysql://localhost?serverTimezone=UTC"
+                dataSource.driverClassName = "com.mysql.cj.jdbc.Driver"
                 dataSource.username =  bancoUser
                 dataSource.password =  bancoSenha
                 val novoJdbcTemplate = JdbcTemplate(dataSource)
@@ -27,7 +28,7 @@ object Conexao {
                 )
                 jdbcTemplate!!.execute(
                     """
-                  use Centrix
+                  use centrix
               """
                 )
             }
