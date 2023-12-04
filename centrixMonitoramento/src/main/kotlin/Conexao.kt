@@ -11,7 +11,7 @@ object Conexao {
 
     var bancoUser = "root"
     val bancoSenha = if (so.contains("Win")) {
-        "sptech"
+        "38762"
     } else {
         "urubu100"
     }

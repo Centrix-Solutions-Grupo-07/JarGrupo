@@ -64,7 +64,7 @@ object scriptPadraoPython {
                 "(Data_captura, Hora_captura, Dado_Capturado, fkCompMoniExistentes, fkMaqCompMoni, fkEmpMaqCompMoni)"
                 "VALUES (%s, %s, %s, %s, %s, %s)"
             )
-            bdLocal_cursor.execute(add_leitura_CPU, (data_atual, hora_atual, CPU, 1, $idMaquinaDado, $idMaquinaDado))
+            bdLocal_cursor.execute(add_leitura_CPU, (data_atual, hora_atual, CPU, 1, $idMaquinaDado, $idEmpresaDado))
 
             # RAM
             add_leitura_RAM = (
@@ -72,7 +72,7 @@ object scriptPadraoPython {
                 "(Data_captura, Hora_captura, Dado_Capturado, fkCompMoniExistentes, fkMaqCompMoni, fkEmpMaqCompMoni)"
                 "VALUES (%s, %s, %s, %s, %s, %s)"
             )
-            bdLocal_cursor.execute(add_leitura_RAM, (data_atual, hora_atual, RAM, 3, $idMaquinaDado, $idMaquinaDado))
+            bdLocal_cursor.execute(add_leitura_RAM, (data_atual, hora_atual, RAM, 3, $idMaquinaDado, $idEmpresaDado))
 
             # DISK
             add_leitura_DISK = (
@@ -80,7 +80,7 @@ object scriptPadraoPython {
                 "(Data_captura, Hora_captura, Dado_Capturado, fkCompMoniExistentes, fkMaqCompMoni, fkEmpMaqCompMoni)"
                 "VALUES (%s, %s, %s, %s, %s, %s)"
             )
-            bdLocal_cursor.execute(add_leitura_DISK, (data_atual, hora_atual, DISK, 2, $idMaquinaDado, $idMaquinaDado))
+            bdLocal_cursor.execute(add_leitura_DISK, (data_atual, hora_atual, DISK, 2, $idMaquinaDado, $idEmpresaDado))
             bdLocal_cursor.close()
 
             mysql_cnx.commit()
@@ -90,13 +90,13 @@ object scriptPadraoPython {
             # BD Server
             
             # CPU
-            bdServer_cursor.execute(add_leitura_CPU, (str(data_atual), str(hora_atual), CPU, 1, $idMaquinaDado, $idMaquinaDado))
+            bdServer_cursor.execute(add_leitura_CPU, (str(data_atual), str(hora_atual), CPU, 1, $idMaquinaDado, $idEmpresaDado))
 
             # RAM
-            bdServer_cursor.execute(add_leitura_RAM, (str(data_atual), str(hora_atual), RAM, 3, $idMaquinaDado, $idMaquinaDado))
+            bdServer_cursor.execute(add_leitura_RAM, (str(data_atual), str(hora_atual), RAM, 3, $idMaquinaDado, $idEmpresaDado))
 
             # DISK
-            bdServer_cursor.execute(add_leitura_DISK, (str(data_atual), str(hora_atual), DISK, 2, $idMaquinaDado, $idMaquinaDado))
+            bdServer_cursor.execute(add_leitura_DISK, (str(data_atual), str(hora_atual), DISK, 2, $idMaquinaDado, $idEmpresaDado))
             
             bdServer_cursor.close()
 
@@ -116,7 +116,7 @@ object scriptPadraoPython {
             cnx = connect(user='$bancoUser', password='${bancoSenha}', host='localhost', database='centrix')
             speed_test = st.Speedtest()
 
-            sql_server_cnx = pymssql.connect(server='44.197.21.59', database='centrix', user='sa', password='centrix');
+            sql_server_cnx = pymssql.connect(server='44.197.21.59', database='centrix', user='sa', password='centrix')
 
             while(True):
                 download = speed_test.download()
