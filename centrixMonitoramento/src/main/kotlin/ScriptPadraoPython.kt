@@ -13,6 +13,7 @@ object scriptPadraoPython {
         import psutil
         import time
         import pymssql
+        from slack_sdk import WebClient
         from mysql.connector import connect
         from datetime import datetime
 
@@ -20,11 +21,11 @@ object scriptPadraoPython {
 
         sql_server_cnx = pymssql.connect(server='44.197.21.59', database='centrix', user='sa', password='centrix')
 
-        ""${'"'}
-        slack_token = 'xoxb-5806834878417-6181633164562-0EX9fmOdmK2bMxTgymgx1Soq'
+        
+        slack_token = 'xoxb-5806834878417-6181633164562-UNgjvP47AfYcw63CbQhHVGXS'
         slack_channel = '#notificação'
         slack_client = WebClient(token=slack_token)
-        ""${'"'}
+        
 
         limite_cpu = 30  # Métricas CPU, RAM e Disco
         limite_ram = 4
@@ -40,7 +41,6 @@ object scriptPadraoPython {
             RAM = round(psutil.virtual_memory().used / (1024**3), 3)
             DISK = round(psutil.disk_usage('/').used / (1024**3), 3)
 
-            ""${'"'}
             if CPU > limite_cpu:
                 message = f"Aviso: Uso de CPU acima do limite! ({CPU}%)"
                 slack_client.chat_postMessage(channel=slack_channel, text=message)
@@ -52,8 +52,7 @@ object scriptPadraoPython {
             if DISK > limite_disco:
                 message = f"Aviso: Uso de Disco acima do limite! ({DISK} GB)"
                 slack_client.chat_postMessage(channel=slack_channel, text=message)
-            ""${'"'}
-
+            
             bdLocal_cursor = mysql_cnx.cursor()
 
             # BD Local
@@ -111,13 +110,22 @@ object scriptPadraoPython {
             import time
             from mysql.connector import connect
             import pymssql
+            from slack_sdk import WebClient
             from datetime import datetime
 
             cnx = connect(user='$bancoUser', password='${bancoSenha}', host='localhost', database='centrix')
             speed_test = st.Speedtest()
 
             sql_server_cnx = pymssql.connect(server='44.197.21.59', database='centrix', user='sa', password='centrix')
-
+            
+            slack_token = 'xoxb-5806834878417-6181633164562-UNgjvP47AfYcw63CbQhHVGXS'
+            slack_channel = '#notificação'
+            slack_client = WebClient(token=slack_token)
+        
+            
+            limite_dow = 50
+            limite_up = 50
+        
             while(True):
                 download = speed_test.download()
                 download_mbs = round(download / (10**6), 2)
@@ -128,6 +136,14 @@ object scriptPadraoPython {
                 data_e_hora_atuais = datetime.now()
                 data_atual = data_e_hora_atuais.date()
                 hora_atual = data_e_hora_atuais.time()
+                   
+                if upload_mbs < limite_up:
+                    message = f"Aviso: Velocidade de upload abaixo do ideal! ({upload_mbs}mbs)"
+                    slack_client.chat_postMessage(channel=slack_channel, text=message)
+
+                if  download_mbs < limite_dow:
+                    message = f"Aviso: Velocidade de download abaixo do ideal! ({download_mbs}mbs)"
+                    slack_client.chat_postMessage(channel=slack_channel, text=message)
                 
                 bd = cnx.cursor()
                 bdServer_cursor = sql_server_cnx.cursor()

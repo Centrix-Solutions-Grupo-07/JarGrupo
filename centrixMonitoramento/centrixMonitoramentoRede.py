@@ -2,12 +2,21 @@ import speedtest as st
 import time
 from mysql.connector import connect
 import pymssql
+from slack_sdk import WebClient
 from datetime import datetime
 
 cnx = connect(user='root', password='38762', host='localhost', database='centrix')
 speed_test = st.Speedtest()
 
 sql_server_cnx = pymssql.connect(server='44.197.21.59', database='centrix', user='sa', password='centrix')
+
+slack_token = 'xoxb-5806834878417-6181633164562-UNgjvP47AfYcw63CbQhHVGXS'
+slack_channel = '#notificação'
+slack_client = WebClient(token=slack_token)
+
+
+limite_dow = 50
+limite_up = 50
 
 while(True):
     download = speed_test.download()
@@ -19,6 +28,14 @@ while(True):
     data_e_hora_atuais = datetime.now()
     data_atual = data_e_hora_atuais.date()
     hora_atual = data_e_hora_atuais.time()
+       
+    if upload_mbs < limite_up:
+        message = f"Aviso: Velocidade de upload abaixo do ideal! ({upload_mbs}mbs)"
+        slack_client.chat_postMessage(channel=slack_channel, text=message)
+
+    if  download_mbs < limite_dow:
+        message = f"Aviso: Velocidade de download abaixo do ideal! ({download_mbs}mbs)"
+        slack_client.chat_postMessage(channel=slack_channel, text=message)
     
     bd = cnx.cursor()
     bdServer_cursor = sql_server_cnx.cursor()

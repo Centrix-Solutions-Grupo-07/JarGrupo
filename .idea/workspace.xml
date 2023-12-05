@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb2faa7a-0203-44e3-8a41-7bff7c6fbcfd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/centrixMonitoramento.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/centrixMonitoramento/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/src/main/kotlin/AppMonitoramento.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/src/main/kotlin/Conexao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/centrixMonitoramento/src/main/kotlin/Conexao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/src/main/kotlin/ScriptPadraoPython.kt" beforeDir="false" afterPath="$PROJECT_DIR$/centrixMonitoramento/src/main/kotlin/ScriptPadraoPython.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/target/classes/AppMonitoramentoKt$main$MenuThread$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/target/classes/AppMonitoramentoKt$main$MonitoramentoThread$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/target/classes/AppMonitoramentoKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/target/classes/Conexao.class" beforeDir="false" afterPath="$PROJECT_DIR$/centrixMonitoramento/target/classes/Conexao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/target/classes/META-INF/centrixMonitoramento.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/centrixMonitoramento/target/classes/META-INF/centrixMonitoramento.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centrixMonitoramento/target/classes/ScriptPadraoPython.class" beforeDir="false" afterPath="$PROJECT_DIR$/centrixMonitoramento/target/classes/ScriptPadraoPython.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +26,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/rafa_/Desktop/backupKotlin/centrixMonitoramento"
+    "last_opened_file_path": "C:/Users/rafa_/Desktop/JarGrupo/centrixMonitoramento"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

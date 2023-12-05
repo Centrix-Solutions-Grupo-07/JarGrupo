@@ -1,6 +1,7 @@
 import psutil
 import time
-import pymssql
+import 
+from slack_sdk import WebClient
 from mysql.connector import connect
 from datetime import datetime
 
@@ -8,11 +9,11 @@ mysql_cnx = connect(user='root', password='38762', host='localhost', database='c
 
 sql_server_cnx = pymssql.connect(server='44.197.21.59', database='centrix', user='sa', password='centrix')
 
-"""
-slack_token = 'xoxb-5806834878417-6181633164562-0EX9fmOdmK2bMxTgymgx1Soq'
+
+slack_token = 'xoxb-5806834878417-6181633164562-UNgjvP47AfYcw63CbQhHVGXS'
 slack_channel = '#notificação'
 slack_client = WebClient(token=slack_token)
-"""
+
 
 limite_cpu = 30  # Métricas CPU, RAM e Disco
 limite_ram = 4
@@ -28,7 +29,6 @@ while True:
     RAM = round(psutil.virtual_memory().used / (1024**3), 3)
     DISK = round(psutil.disk_usage('/').used / (1024**3), 3)
 
-    """
     if CPU > limite_cpu:
         message = f"Aviso: Uso de CPU acima do limite! ({CPU}%)"
         slack_client.chat_postMessage(channel=slack_channel, text=message)
@@ -40,8 +40,7 @@ while True:
     if DISK > limite_disco:
         message = f"Aviso: Uso de Disco acima do limite! ({DISK} GB)"
         slack_client.chat_postMessage(channel=slack_channel, text=message)
-    """
-
+    
     bdLocal_cursor = mysql_cnx.cursor()
 
     # BD Local

@@ -164,7 +164,7 @@ class Monitoramento {
             val (arquivo1, arquivo2) = scriptPadraoPython.criarScript(tempo, idMaquina, idEmpresa)
             println("Iniciando o monitoramento....")
             var opcaoMonitoramento = true
-
+            val valorUsb: Float = looca.dispositivosUsbGrupo.totalDispositvosUsbConectados.toFloat()
             scriptPadraoPython.executarScript(arquivo1, arquivo2)
             val MonitoramentoThread = thread {
                 while (opcaoMonitoramento) {
@@ -189,9 +189,10 @@ class Monitoramento {
 
                     if (componentesExistentes.contains("Usb")) {
                         val usb: Float = looca.dispositivosUsbGrupo.totalDispositvosUsbConectados.toFloat()
+
                         dados.add(usb)
                         fkcomponentesExistentes.add(4)
-                        if (usb > 10) {
+                        if (usb != valorUsb) {
                             Notificacao().notificarUSB(usb)
                         }
                     }

@@ -37,21 +37,21 @@ class Notificacao {
     }
 
     fun notificarProcessos(processos: Float) {
-        val webhookUrl = "https://hooks.slack.com/services/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"
+        val webhookUrl = "https://hooks.slack.com/services/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"
         val mensagem = "Aviso: Processos acima do limite! ($processos)"
 
         enviarNotificacaoSlack(webhookUrl, mensagem)
     }
 
     fun notificarUSB(usb: Float) {
-        val webhookUrl = "https://hooks.slack.com/services/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"
+        val webhookUrl = "https://hooks.slack.com/services/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"
         val mensagem = "Aviso: USB acima do limite! ($usb)"
 
         enviarNotificacaoSlack(webhookUrl, mensagem)
     }
 
     fun notificarJanelas(janelas: Float) {
-        val webhookUrl = "https://hooks.slack.com/services/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"
+        val webhookUrl = "https://hooks.slack.com/services/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"
         val mensagem = "Aviso: Janelas acima do limite! ($janelas)"
 
         enviarNotificacaoSlack(webhookUrl, mensagem)
