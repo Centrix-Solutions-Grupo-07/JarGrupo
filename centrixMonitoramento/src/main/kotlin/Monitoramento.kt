@@ -192,25 +192,25 @@ class Monitoramento {
 
                         dados.add(usb)
                         fkcomponentesExistentes.add(4)
-                        if (usb != valorUsb) {
-                            Notificacao().notificarUSB(usb)
-                        }
+                        //if (usb != valorUsb) {
+                         //   Notificacao().notificarUSB(usb)
+                       // }
                     }
                     if (componentesExistentes.contains("Janelas do Sistema")) {
                         val janelas: Float = looca.grupoDeJanelas.totalJanelas.toFloat()
                         dados.add(janelas)
                         fkcomponentesExistentes.add(7)
-                        if (janelas > 10) {
-                            Notificacao().notificarJanelas(janelas)
-                        }
+                        //if (janelas > 10) {
+                         //   Notificacao().notificarJanelas(janelas)
+                       // }
                     }
                     if (componentesExistentes.contains("Processos")) {
                         val processos: Float = looca.grupoDeProcessos.totalProcessos.toFloat()
                         dados.add(processos)
                         fkcomponentesExistentes.add(8)
-                        if (processos > 10) {
-                            Notificacao().notificarProcessos(processos)
-                        }
+                       // if (processos > 10) {
+                        //    Notificacao().notificarProcessos(processos)
+                       // }
                     }
                     for (i in dados.indices) {
                         val zonaFusoHorario = ZoneId.of("America/Sao_Paulo")
